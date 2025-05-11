@@ -1,11 +1,14 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.template import loader
 
+@login_required
 def dashbord(request):
-  template = loader.get_template('dashbord.html')
-  return HttpResponse(template.render())
-
+  return render(request, 'dashbord.html')
+@login_required
 def home(request):
-  template = loader.get_template('home.html')
-  return HttpResponse(template.render())
+  return render(request, 'home.html')
+
+@login_required
+def order(request):
+  return render(request, 'home.html')
